@@ -1,0 +1,157 @@
+$font: 'Raleway', sans-serif !default;
+$font-size: 18px !default;
+$line-height: 1.2 !default;
+$text-color: #000 !default;
+$heading-text-color: #273746 !default;
+$link-color: #21618C !default;
+$link-font-size: 14px;
+
+$font-accent: 'Source Sans Pro', sans-serif !default;
+$accent-font-size: 20px;
+
+$header-font-sizes: (
+	h1: 48px,
+	h2: 60px,
+	h3: 48px,
+	h4: 32px,
+	h5: 24px
+);
+
+body {
+	font-family: $font;
+	line-height: $line-height;
+	font-size: $font-size;
+	color: $text-color;
+}
+
+// Headers
+
+@each $header, $size in $header-font-sizes {
+	.#{$header} {
+		font-size: $size;
+		margin-bottom: 0;
+		margin-top: 0;
+
+	@include max-width($tablet) {
+			font-size: $size * 0.75;
+		}
+	}
+
+	#{$header} {
+		font-size: $size;
+		color: $blue;
+		font-weight: $bold;
+
+		@include max-width($tablet) {
+			font-size: $size * 0.75;
+		}
+	}
+}
+
+.header {
+	line-height: 1;
+	font-weight: 400;
+
+	&.sub {
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 2px;
+
+		@include max-width($tablet) {
+			font-size: 11px;
+		}
+	}
+
+	&.bold {
+		font-weight: 700;
+	}
+}
+
+.heading {
+	line-height: 1;
+
+	&.bottom-only {
+		margin-bottom: 38px;
+	}
+
+	&.thin {
+		font-weight: $thin;
+	}
+
+	&.black {
+		color: $pure-black;
+	}
+
+	b {
+		font-weight: $extra;
+	}
+
+	&.section-heading {
+		font-weight: $extra;
+	}
+}
+
+.accent-text {
+	font-family: $font-accent;
+	font-size: $accent-font-size;
+	font-style: italic;
+	font-weight: 400;
+
+	&.bold {
+		font-weight: 600;
+	}
+}
+
+// Links
+// ---------------------------------
+
+a {
+	cursor: pointer;
+	text-decoration: none;
+	color: $link-color;
+	font-size: $link-font-size;
+	transition: color 200ms ease;
+
+	&:hover {
+		color: $g-link-hover-color;
+	}
+
+	&.default {
+		font-size: $font-size;
+
+		&:hover {
+			text-decoration: underline;
+			color: $g-link-hover-color;
+		}
+	}
+}
+
+a,
+.fa {
+	transition: color 240ms $cb;
+}
+
+// Tags
+// ---------------------------------
+
+b {
+	font-weight: $semi;
+	transition: color 200ms ease;
+}
+
+p {
+	&.typo {
+		margin: 0;
+	}
+
+	&.bottom-only {
+		margin-top: 0;
+	}
+}
+
+// Font Awesome
+// ---------------------------------
+
+.fa {
+	font-size: 21px;
+}

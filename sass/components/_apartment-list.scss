@@ -1,0 +1,54 @@
+.apartment-list {
+  @include row($desktop-count: 2, $tablet-count: 2);
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.apartment-item {
+  display: block;
+  min-height: 200px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+
+  &:hover {
+    .apartment-img {
+      transform: scale(1.07) rotate(-.33deg);
+    }
+
+    .apartment-title {
+      b {
+        color: $orange;
+      }
+    }
+  }
+}
+
+.apartment-img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0; right: 0; top: 0; bottom: 0;
+  transform: scale(1.001) rotate(-.001deg);
+  transition: transform 350ms ease;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.apartment-title {
+  padding: 5px 14px;
+  margin: 0;
+  position: absolute;
+  bottom: 17px;
+  left: 0;
+  background-color: $pure-white;
+  color: $text-color;
+  font-size: $font-size;
+
+  b {
+    color: $link-color;
+  }
+}

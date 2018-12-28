@@ -1,0 +1,185 @@
+//Checkbox
+//
+// description
+//
+// Markup:
+// <div class="checkbox-row">
+//   <div class="css-checkbox">
+//     <label>
+//       <input type="checkbox">
+//       <div class="checkbox"></div>
+//       <span>Checkbox Label</span>
+//     </label>
+//   </div>
+// </div>
+// <div class="checkbox-row">
+//   <div class="css-radiobox">
+//     <label>
+//       <input type="radio">
+//       <div class="radiobox"></div>
+//       <span>Radio Label</span>
+//     </label>
+//   </div>
+// </div>
+//
+// Style guide: components.checkbox
+
+$checkbox-size:                      23px;
+$radiobox-size:                      20px;
+$checkbox-border-radius:             2px;
+$checkbox-border-width:              1px;
+
+$checkbox-label-color:               $input-label-color;
+$checkbox-label-font-size:           16px;
+
+$checkbox-inactive-border-color:     #D6DBDF;
+
+$checkbox-active-color:              $g-input-focused;
+$checkbox-active-bg:                 $pure-white;
+
+$checkbox-row-offset:                20px;
+
+.css-checkbox {
+  label {
+    display: inline-block;
+    position: relative;
+    padding: 2px 0 0 ($checkbox-size + 10);
+
+    color: $checkbox-label-color;
+    font-size: $checkbox-label-font-size;
+    transition: color 270ms $cb;
+    cursor: pointer;
+    @extend %no-text-select;
+
+    &:hover {
+      color: darken($checkbox-label-color, 15%);
+
+      &:before {
+        border-color: $checkbox-active-color;
+      }
+    }
+  }
+
+  .checkbox {
+    width: $checkbox-size;
+    height: $checkbox-size;
+    left: 0;
+    top: 0;
+
+    border-radius: $checkbox-border-radius;
+    border: $checkbox-border-width solid $checkbox-inactive-border-color;
+    background-color: $pure-white;
+    transition: border-color 230ms ease,
+                background-color 230ms ease;
+
+    @extend %pseudo;
+    @include css-checkmark-standalone(6px, 12px, 2px, $checkbox-active-color, 7px, 3px);
+
+    &:after {
+      bottom: $checkbox-size/10;
+      opacity: 0;
+      z-index: -5;
+
+      transform: rotate(45deg) scale(0);
+      transition: opacity 230ms ease,
+                  transform 230ms ease,
+                  z-index 230ms ease;
+    }
+  }
+
+  input[type="checkbox"] {
+    display: none;
+
+    &:checked {
+      + .checkbox {
+        border-color: $checkbox-active-color;
+        background-color: $checkbox-active-bg;
+
+        &:after {
+          opacity: 1;
+          z-index: 5;
+          transform: rotate(45deg) scale(1);
+        }
+      }
+    }
+  }
+}
+
+.css-radiobox {
+  label {
+    position: relative;
+    padding-left: 28px;
+
+    background-image: none;
+    color: $checkbox-label-color;
+
+    transition: color 270ms $cb;
+    cursor: pointer;
+    @extend %no-text-select;
+  }
+
+  .radiobox {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    @include circle-icon($radiobox-size);
+
+    &:before {
+      left: 0;
+
+      border: 1px solid;
+      border-color: $checkbox-inactive-border-color;
+      background-color: $pure-white;
+
+      transition: border-color 240ms ease;
+
+      @include circle-icon($radiobox-size);
+      @extend %pseudo;
+    }
+
+    &:after {
+      position: absolute;
+      left: 0;
+      top: 0;
+
+      opacity: 0;
+      z-index: -5;
+
+      transform: scale(0);
+      background-color: $checkbox-active-color;
+      transition: opacity 230ms ease,
+                  transform 230ms ease,
+                  z-index 230ms ease;
+      @extend %center-checkmark;
+      @include circle-icon($radiobox-size - 8px);
+    }
+  }
+
+  input[type="radio"] {
+    display: none;
+
+    &:checked {
+      + .radiobox {
+        &:before {
+          border-color: $checkbox-active-color;
+        }
+
+        &:after {
+          opacity: 1;
+          z-index: 5;
+          transform: scale(1);
+        }
+      }
+    }
+  }
+}
+
+.checkbox-row {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  flex-flow: row wrap;
+  margin-bottom: $checkbox-row-offset;
+}

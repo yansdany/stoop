@@ -1,0 +1,188 @@
+// Inputs
+//
+// Markup:
+// <div class="input-row">
+//   <div class="col input-group with-icon">
+//     <label class="input">First Name</label>
+//     <input type="text">
+//     <div class="icon-square input">6</div>
+//   </div>
+//   <div class="col">
+//     <label class="input">Last Name</label>
+//     <input type="text">
+//   </div>
+//   <div class="col input-group">
+//     <div class="input-outer">
+//       <label class="input">Email</label>
+//       <input type="text">
+//     </div>
+//     <div class="action-outer">
+//       <button class="btn medium">Submit</button>
+//     </div>
+//   </div>
+// </div>
+//
+// Style guide: components.inputs
+
+$input-height:                      43px;
+$input-color:                       #000;
+$input-side-padding:                12px;
+$input-border-radius:               4px;
+$input-font-size:                   17px;
+
+$input-collapse-font-size:          15px;
+$input-collapse-height:             $input-height;
+
+$input-label-gap-btm:               5px;
+$input-label-ucased:                false;
+$input-label-weight:                400;
+
+$input-placeholder-color:           #444;
+
+input {
+	width: 100%;
+	height: $input-height;
+	padding: 0 $input-side-padding;
+
+	border: 1px solid $input-border;
+	font-size: $input-font-size;
+	color: $input-color;
+
+	box-shadow: none;
+	outline: none;
+	transition: border-color 200ms ease;
+
+	@include placeholder {
+		color: $input-placeholder-color;
+		transition: color 230ms $cb;
+		line-height: 100%;
+		opacity: 1;
+	}
+
+	&:focus {
+		border-color: $g-input-focused;
+	}
+
+	@include max-width(1440px) {
+		height: $input-collapse-height;
+		font-size: $input-collapse-font-size;
+	}
+
+	&.aligned {
+		border-radius: 2px;
+	}
+}
+
+textarea {
+	width: 100%;
+	padding: $input-side-padding;
+
+	border: 1px solid $input-border;
+	font-size: $input-font-size;
+	color: $input-color;
+
+	box-shadow: none;
+	outline: none;
+	transition: border-color 200ms ease;
+
+	@include placeholder {
+		color: $input-placeholder-color;
+		transition: color 230ms $cb;
+		line-height: 100%;
+		opacity: 1;
+	}
+
+	&:focus {
+		border-color: $g-input-focused;
+	}
+}
+
+label {
+	color: $text-color;
+	font-size: $font-size;
+	font-weight: $input-label-weight;
+
+	&.input {
+		display: block;
+		margin-bottom: $input-label-gap-btm;
+
+		@if $input-label-ucased == true {
+			text-transform: uppercase;
+		}
+	}
+
+	&.inline {
+		margin-right: 12px;
+	}
+}
+
+.input-row {
+	@include row($gap: 20px, $tablet-count: 2, $landscape-count: 2, $portrait-count: 1);
+
+	@include min-width($desktop) {
+    margin-bottom: 25px;
+  }
+
+	@include max-width($desktop) {
+		margin-bottom: 25px;
+	}
+}
+
+.input-group {
+	display: flex;
+	align-items: flex-end;
+
+	.input-outer {
+		flex: 1;
+	}
+
+	.btn {
+		height: $input-height;
+		padding-top: 0;
+		padding-bottom: 0;
+
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+	}
+
+	input {
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+
+		&:focus {
+			~ .icon-square {
+				border-color: $blue;
+			}
+		}
+	}
+
+	@include max-width(1440px) {
+		.btn {
+			height: $input-collapse-height;
+		}
+	}
+
+	&.with-icon {
+		position: relative;
+		display: block;
+
+		input {
+			margin-left: 38px;
+			width: calc(100% - 38px);
+
+			border-top-right-radius: 4px;
+			border-bottom-right-radius: 4px;
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+		}
+
+		.icon-square {
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			height: $input-height;
+			min-height: $input-height;
+			transition: border-color 200ms ease;
+		}
+	}
+}

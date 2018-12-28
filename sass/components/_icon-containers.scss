@@ -1,0 +1,37 @@
+$icon-square-bg: $grey-bg;
+
+.icon-circle {
+  border-radius: 50%;
+  background-color: rgba(255,255,255,.12);
+  @extend %v-h-c;
+  cursor: pointer;
+}
+
+.icon-square {
+  @extend %v-h-c;
+
+  &.features {
+    @include size(70px);
+  }
+
+  &.social {
+    @include size(36px);
+    border-radius: 4px;
+    font-size: 20px;
+  }
+
+  &.input {
+    @include size(38px);
+    background-color: $icon-square-bg;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    color: $pure-white;
+  }
+
+  &.square-white {
+    background-color: $pure-white;
+    border-top: 1px solid $input-border;
+    border-bottom: 1px solid $input-border;
+    border-left: 1px solid $input-border;
+  }
+}

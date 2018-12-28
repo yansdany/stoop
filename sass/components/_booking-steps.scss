@@ -1,0 +1,47 @@
+$booking-step-padding: 60px 20px;
+
+.booking-steps {
+  @include row($desktop-count: 3, $gap-btm: 0, $gap: 0);
+}
+
+.booking-step {
+  padding: $booking-step-padding;
+  text-align: center;
+
+  &.explore {
+    background-color: #999999;
+    color: $pure-white;
+
+    .header {
+      color: $pure-white;
+    }
+  }
+
+  &.book {
+    background-color: #f4f9f9;
+    color: $darkblue;
+
+    .header {
+      color: $darkblue;
+    }
+  }
+
+  &.relax {
+    background-color: $blue;
+    color: $pure-white;
+
+    .header {
+      color: $pure-white;
+    }
+  }
+
+  img {
+    max-width: 235px;
+    max-height: 165px;
+    margin: 0 auto;
+  }
+
+  .h4 {
+    margin: 25px auto;
+  }
+}

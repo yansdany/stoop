@@ -1,0 +1,103 @@
+// Lists
+//
+// Markup:
+// <div class="multiple-lists">
+//     <ul class="default {{modifier_class}}">
+//         <li class="list-title">List Title</li>
+//         <li><i class="icon fa fa-bandcamp"></i>List Item</li>
+//         <li>List Item</li>
+//         <li>List Item</li>
+//     </ul>
+//     <ul class="default {{modifier_class}}">
+//         <li class="list-title">List Title</li>
+//         <li><i class="icon fa fa-bandcamp"></i>List Item</li>
+//         <li>List Item</li>
+//         <li>List Item</li>
+//     </ul>
+// </div>
+//
+// .default - Default list
+// .three-cols - Three items per row
+//
+// Style guide: components.lists
+
+$list-title-size: 22px;
+$list-item-size: 18px;
+$list-item-color: #888;
+$list-item-mb: 15px;
+
+.multiple-lists {
+  display: flex;
+
+  ul {
+    &:first-child {
+      margin-right: 70px;
+    }
+  }
+
+  @include collapse($tablet-portrait, 0);
+}
+
+ul {
+  &.default {
+    margin: 0;
+    list-style-type: none;
+    padding: 0;
+
+    li {
+      &.list-title {
+        font-size: $list-title-size;
+        font-weight: 400;
+        color: $text-color;
+        padding-left: 0;
+        font-family: $font-accent;
+      }
+
+      margin-bottom: $list-item-mb;
+      font-size: $list-item-size;
+      color: $list-item-color;
+      padding-left: 40px;
+      position: relative;
+      font-weight: 400;
+
+      a {
+        font-size: $list-item-size;
+        color: $list-item-color;
+      }
+
+      .icon {
+        position: absolute;
+        left: 0;
+        font-size: 24px;
+        color: $g-icon-default-color;
+        height: 24px;
+        width: 24px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+      }
+    }
+  }
+
+  &.footer {
+    li {
+      padding-left: 0;
+
+      &.list-title {
+        color: $blue;
+        font-family: $font;
+        font-weight: 600;
+        margin-bottom: $list-item-mb + 15;
+        font-size: $list-item-size;
+      }
+
+      a {
+        color: $pure-white;
+
+        &:hover {
+          color: $g-link-hover-color;
+        }
+      }
+    }
+  }
+}

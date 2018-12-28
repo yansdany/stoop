@@ -1,0 +1,224 @@
+$topnav-height:                 95px;
+$topnav-height-compact:         95px;
+$topnav-height-mobile:          55px;
+$topnav-logo-width:             60px;
+$topnav-logo-width-compact:     60px;
+$topnav-z:                      10;
+$leftnav-width:                 0;
+$leftnav-width-compact:         0;
+
+$topnav-item-color:             $darkblue;
+$topnav-item-size:              18px;
+$topnav-item-weight:            400;
+$logout-width:                  10px;
+$logout-width-compact:          10px;
+$dd-caret-grey:                 #ddd;
+
+$topnav-border:                 #DFE4E9;
+$logout-grey:                   #92a2b1;
+$title-left-padding:            40px;
+$menu-item-pading:              10px 12px;
+$topnav-icon-gap:               11px;
+$avatar-size:                   50px;
+
+.topnav {
+  height: $topnav-height;
+  background-color: #fff;
+  position: relative;
+
+  backface-visibility: hidden;
+  z-index: 1010;
+  transition: width 200ms ease,
+              width 200ms ease;
+
+  &.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
+
+  .container {
+    @extend %v-c;
+    height: $topnav-height;
+
+    @include max-width($compact) {
+      height: $topnav-height-compact;
+    }
+  }
+
+  @include max-width($tablet-portrait) {
+    height: $topnav-height-mobile;
+
+    .container {
+      height: $topnav-height-mobile;
+    }
+  }
+}
+
+.topnav-toggle-leftnav {
+  padding-left: 20px;
+  height: 100%;
+  padding-right: 20px;
+  border-right: 1px solid $topnav-border;
+  @extend %all-c;
+  display: none;
+
+  .icon {
+    font-size: 20px;
+    color: #b8c4d1;
+    height: 14px;
+  }
+}
+
+.topnav-logo {
+  @extend %all-c;
+  height: 100%;
+  position: relative;
+
+  .icon {
+    font-size: 42px;
+    width: 84px;
+    color: $blue;
+  }
+
+  @include max-width($tablet-portrait) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.topnav-menu {
+  margin-left: auto;
+  height: 100%;
+  display: flex;
+
+  @include max-width($tablet-portrait) {
+    position: absolute;
+    height: auto;
+    top: $topnav-height-mobile;
+    left: 0;
+    width: 50%;
+    flex-direction: column;
+    @include hidden;
+  }
+}
+
+.topnav-menu-item {
+  @extend %all-c;
+  height: 100%;
+  padding: $menu-item-pading;
+  position: relative;
+
+  color: $topnav-item-color;
+  font-size: $topnav-item-size;
+  font-weight: $topnav-item-weight;
+
+  .icon {
+    margin-right: $topnav-icon-gap;
+    font-size: 18px;
+    transition: color 200ms ease-out;
+  }
+
+  @include max-width(480px) {
+    padding: 10px;
+  }
+
+  &:after {
+    @extend %pseudo;
+    width: 100%;
+    height: 1px;
+    background-color: $blue;
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    display: none;
+
+    @include max-width($tablet-portrait) {
+      bottom: 0;
+    }
+  }
+
+  &.active {
+    &:after {
+      display: block;
+    }
+  }
+
+  @include max-width($tablet-portrait) {
+    background-color: $pure-white;
+    text-align: left;
+    border-bottom: 1px solid #E4E4E4;
+  }
+}
+
+$bar-height: 3px;
+$bar-bg: #929fb1;
+
+.mobile-bars {
+  width: 16px;
+  height: $bar-height * 5;
+  position: absolute;
+  left: 20px; top: 0; bottom: 0; margin: auto;
+  transform: rotate(0deg);
+  transition: .5s ease-in-out;
+
+  span {
+    display: block;
+    position: absolute;
+    height: $bar-height;
+    width: 50%;
+    background: $bar-bg;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+
+    &:nth-child(even) {
+      left: 50%;
+    }
+
+    &:nth-child(odd) {
+      left: 0px;
+    }
+
+    &:nth-child(1),
+    &:nth-child(2) {
+      top: 0px;
+    }
+
+    &:nth-child(3),
+    &:nth-child(4) {
+      top: $bar-height * 2;
+    }
+
+    &:nth-child(5),
+    &:nth-child(6) {
+      top: $bar-height * 4;
+    }
+  }
+
+  &.active {
+    span {
+      &:nth-child(1),
+      &:nth-child(4) {
+        transform: rotate(45deg);
+      }
+
+      &:nth-child(2),
+      &:nth-child(3) {
+        transform: rotate(-45deg);
+      }
+
+      &:nth-child(1),
+      &:nth-child(3) {
+        left: 2px;
+      }
+
+      &:nth-child(5),
+      &:nth-child(6) {
+        display: none;
+      }
+    }
+  }
+}

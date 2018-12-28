@@ -1,0 +1,192 @@
+@@include('includes/head.html')
+@@include('includes/header.html')
+
+
+	<div class="hero">
+		<div class="grid-container">
+			<div class="hero-content">
+				<div class="logo-text">
+					<div class="left">
+						<h2 class="header h2 logo-title">stoop</h2>
+						<i class="icon icon-logo"></i>
+					</div>
+
+					<h5 class="header h5">Residential Freedom</h5>
+				</div>
+
+				<div class="hero-search-bar">
+					<label class="input inline">Move in Date</label>
+					<div class="col input-group with-icon">
+						<input type="text" placeholder="DD|MM|YY">
+				    <div class="icon-square input square-white">
+				    	<i class="fa fa-calendar blue"></i>
+				    </div>
+				  </div>
+
+					<div class="hero-search-bar-separator hide-mobile"></div>
+
+					<label class="input nomargin hide-mobile">Price</label>
+
+					<div class="hero-search-bar-separator hide-mobile"></div>
+
+					<button class="btn mini orange">Search</button>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<main>
+		<div class="container">
+			<h2 class="h2 heading bottom-only">Availabilities</h2>
+
+			<div class="move-dates">
+				<div class="col"><label><b>Move In: </b><span id="moveInDate">December 10, 2017</span></label><i class="fa fa-calendar blue"></i></div>
+				<div class="col"><label><b>Move Out: </b><span id="moveOutDate">July 10, 2018</span></label><i class="fa fa-calendar blue"></i></div>
+			</div>
+
+			<div class="price-range">
+				<label class="inline"><b>Price Range: </b></label>
+				<div id="priceRange" class="range-slider"></div>
+				<button class="btn mini orange">Update</button>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="apartment-list">
+				<div class="col">
+					<a href="#" class="apartment-item">
+						<span class="apartment-img" style="background-image: url(img/apartment1.jpg)"></span>
+						<p class="apartment-title"><b>Uppwer West Side - </b>3 Bedroom</p>
+					</a>
+				</div>
+				<div class="col">
+					<a href="#" class="apartment-item">
+						<span class="apartment-img" style="background-image: url(img/apartment2.jpg)"></span>
+						<p class="apartment-title"><b>Park Slope - </b>Spacious Studio</p>
+					</a>
+				</div>
+				<div class="col">
+					<a href="#" class="apartment-item">
+						<span class="apartment-img" style="background-image: url(img/apartment3.jpg)"></span>
+						<p class="apartment-title"><b>Manhattan - </b>Cozy Studio</p>
+					</a>
+				</div>
+				<div class="col">
+					<a href="#" class="apartment-item">
+						<span class="apartment-img" style="background-image: url(img/apartment4.jpg)"></span>
+						<p class="apartment-title"><b>Chelsea - </b>Mansion</p>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<ul class="pagination">
+			<li class="pagination-item pagination-nav"><a href="#" class="pagination-item-link"><i class="fa fa-chevron-left"></i></a></li>
+			<li class="pagination-item current"><a href="#" class="pagination-item-link">1</a></li>
+			<li class="pagination-item"><a href="#" class="pagination-item-link">2</a></li>
+			<li class="pagination-item"><a href="#" class="pagination-item-link">3</a></li>
+			<li class="pagination-item"><a href="#" class="pagination-item-link">4</a></li>
+			<li class="pagination-item"><a href="#" class="pagination-item-link">5</a></li>
+			<li class="pagination-item"><a href="#" class="pagination-item-link">6</a></li>
+			<li class="pagination-item pagination-nav"><a href="#" class="pagination-item-link"><i class="fa fa-chevron-right"></i></a></li>
+		</ul>
+
+		<section>
+			<div class="container">
+				<div class="section-title">
+					<h2 class="h2 thin heading bottom-only">Why <b>stoop</b>?</h2>
+
+					<h5 class="heading thin black">Connecting You to a Community of Living Options</h5>
+
+					<div class="text-image image-left">
+						<i class="icon blue icon-handshake"></i>
+						<p class="typo big">No more dealing with brokers, landlords, property managers, or utility companies. Stoop handles everything from searching for housing and roommates, to leasing, payments, and maintenance, so you can worry less about your housing.</p>
+					</div>
+
+					<div class="text-image">
+						<p class="typo big">Free yourself from a 12-month lease. Rent for a flexible month-to-month stay or fixed term, however long you like.</p>
+						<i class="icon blue icon-flexible"></i>
+					</div>
+					<div class="text-image image-left">
+						<i class="icon blue icon-bag"></i>
+						<p class="typo big">
+							All Stoop units come with high-speed WiFi, utilities and are fully furnished with everything from pots and pans to linens. Stoop pays the utility bills so you don’t have to.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="small darkblue-bg one-title">
+			<h4 class="h4 heading thin white">Book Stoop in <b>3 Steps</b></h4>
+		</section>
+
+		<div class="booking-steps">
+			<div class="col">
+				<div class="booking-step explore">
+					<img src="img/svg/binoculars.svg" alt="">
+					<h4 class="h4 header bold">Explore</h4>
+					<p>Search our network of housing options to find the right place for you.</p>
+				</div>
+			</div>
+			<div class="col">
+				<div class="booking-step book">
+					<img src="img/svg/calendar-big.svg" alt="">
+					<h4 class="h4 header bold">Book</h4>
+					<p>Find a home and book it. No paperwork, wait time or broker fees.</p>
+				</div>
+			</div>
+			<div class="col">
+				<div class="booking-step relax">
+					<img src="img/svg/person-in-bed.svg" alt="">
+					<h4 class="h4 header bold">Relax</h4>
+					<p>Enjoy a great housing experience, completely managed by Stoop.</p>
+				</div>
+			</div>
+		</div>
+
+		<section>
+			<div class="container">
+				<h3 class="heading section-heading bottom-only">FAQs</h3>
+
+				<div class="faq-grid">
+					<p class="left bottom-only">Did you know Stoop listings can be booked for any length of time (30 days or longer)? Learn about our Guest Policies, House Rules, and Furry Friends. Would you like to bring your own furniture, and have the apartment all to yourself? Find out more.
+					</p>
+					<div class="right">
+						<a href="#">
+							<i class="icon icon-plus"></i>
+							More FAQs
+						</a>
+					</div>
+				</div>
+
+				<h3 class="heading section-heading bottom-only">Contact Us</h3>
+
+				<div class="faq-grid">
+					<div class="left">
+						<div class="input-row">
+							<input type="text" placeholder="Name">
+						</div>
+						<div class="input-row">
+							<input type="email" placeholder="Email">
+						</div>
+						<div class="input-row">
+							<input type="text" placeholder="Subject">
+						</div>
+						<div class="input-row">
+							<textarea placeholder="Message" cols="30" rows="5"></textarea>
+						</div>
+					</div>
+
+					<div class="right">
+						<p class="bottom-only">900 Broadway, Floor 4<br>New York, NY 10003</p>
+						<p><a href="mailto:info@stoop.ly" class="default">info@stoop.ly</a></p>
+						<p><a href="tel:+16465826925" class="default">Tel: 646.582.6925</a></p>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+@@include('includes/footer.html')

@@ -1,0 +1,39 @@
+//Global variables and helpers
+@import "abstract/_variables.scss";
+@import "abstract/_mixins.scss";
+@import "abstract/_helpers.scss";
+@import "abstract/_placeholders.scss";
+
+//Libraries (untouched)
+@import "libs/_rangeslider.scss";
+
+//Resets, typography and global styles
+@import "base/_normalize.scss";
+@import "base/_global.scss";
+@import "base/_fonts.scss";
+@import "base/_typography.scss";
+
+@import "components/_buttons.scss";
+@import "components/_dropdown.scss";
+@import "components/_inputs.scss";
+@import "components/_modals.scss";
+@import "components/_icon-containers.scss";
+@import "components/_checkbox.scss";
+@import "components/_topnav.scss";
+@import "components/_sections.scss";
+@import "components/_lists.scss";
+@import "components/_apartment-list.scss";
+@import "components/_text-image.scss";
+@import "components/_booking-steps.scss";
+@import "components/_rangeslider.scss";
+@import "components/_pagination.scss";
+
+@import "layout/_grid.scss";
+@import "layout/_hero.scss";
+@import "layout/_footer.scss";
+@import "layout/_forms.scss";
+@import "layout/_global.scss";
+
+@import "icons/_icons.scss";
+
+@import "pages/_home.scss";

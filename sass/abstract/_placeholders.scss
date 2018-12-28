@@ -1,0 +1,43 @@
+%no-text-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+%center-checkmark {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+}
+
+%all-c {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin hidden {
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+  transform: scale(0.8);
+
+  transition: opacity 200ms ease,
+              pointer-events 200ms ease,
+              z-index 200ms ease,
+              transform 200ms ease;
+
+  &.active {
+    opacity: 1;
+    pointer-events: auto;
+    z-index: auto;
+    transform: scale(1);
+  }
+}

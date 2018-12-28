@@ -1,0 +1,30 @@
+footer {
+	background-color: $darkblue;
+	padding: 75px;
+
+	.container {
+		display: flex;
+
+		.footer-col {
+			text-align: center;
+			margin-right: 70px;
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+	}
+
+	@include max-width($tablet-portrait) {
+		padding: 25px;
+
+		.container {
+			flex-direction: column;
+
+			.footer-col {
+				margin-right: 0;
+				margin-bottom: 25px;
+			}
+		}
+	}
+}
